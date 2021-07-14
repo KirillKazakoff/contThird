@@ -1,4 +1,4 @@
-import { possibleSettings } from './possibleSettings';
+import possibleSettings from './possibleSettings';
 
 export default class Settings {
     constructor() {
@@ -6,17 +6,15 @@ export default class Settings {
             ['theme', 'dark'],
             ['music', 'trance'],
             ['difficulty', 'easy'],
-        ])
+        ]);
     }
 
     setProperty(prop, value) {
         if (possibleSettings.find((element) => {
             const [key, valueArr] = element;
-            const foundValue = valueArr.find((element) => element === value);
+            const foundValue = valueArr.find((elem) => elem === value);
 
-            if (key === prop && foundValue) {
-                return 1;
-            }
+            return (key === prop && foundValue);
         })) {
             this.defaults.set(prop, value);
             return true;
@@ -30,8 +28,3 @@ export default class Settings {
         return [...this.defaults];
     }
 }
-
-const newSettings = new Settings();
-
-newSettings.setProperty('difficulty', 'normal');
-console.log(newSettings.getSettings());
