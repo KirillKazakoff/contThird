@@ -14,7 +14,7 @@ export default class Settings {
             const [key, valueArr] = element;
             const foundValue = valueArr.find((elem) => elem === value);
 
-            return (key === prop && foundValue);
+            return key === prop && foundValue;
         })) {
             this.defaults.set(prop, value);
             return true;

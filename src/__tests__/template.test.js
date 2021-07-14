@@ -19,5 +19,16 @@ test('setProperty successful', () => {
 
 test('setProperty failled', () => {
     userSettings.setProperty('theme', 'dar');
+
     expect(userSettings.setProperty()).toEqual(false);
+});
+
+test('getSettings success', () => {
+    const expected = [
+        ['theme', 'dark'],
+        ['music', 'trance'],
+        ['difficulty', 'easy'],
+    ];
+
+    expect(userSettings.getSettings()).toEqual(expected);
 });
